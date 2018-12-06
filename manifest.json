@@ -1,8 +1,8 @@
 {
-    "name": "Weidian-Power",
-    "version": "1.0.1",
+    "name": "chrome-extension-demo",
+    "version": "1.0.0",
     "manifest_version": 2,
-    "description": "微店生产力提升插件",
+    "description": "chrome extension demo",
     "icons": {
         "16": "img/compare-16.png",
         "32": "img/compare-32.png",
