@@ -9,7 +9,7 @@
   var localStorageStateName = 'visualCompareState';
 
   var $ = window.$;
-  var weidianPowerUtil = window.ChromeExtention_util;
+  var weidianPowerUtil = window.ChromeExtention_WeidianPowerUtil;
 
   var IS_SUPPORT_LOCALSTORAGE = weidianPowerUtil.isSupportLocalStorage();
   var IMG_PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAABCAYAAAAIN1RAAAAADElEQVQIW2NkIAEAAABaAAL8VAbiAAAAAElFTkSuQmCC';
@@ -766,7 +766,7 @@
 
       $('body').find('.J_VisualCompareWrapper').remove();
 
-      weidianPowerUtil.removeCss('#visual-compare-css');
+      weidianPowerUtil.removeDomById('visual-compare-css');
 
       window.localStorage.setItem(localStorageStateName, 'off');
     }
@@ -811,9 +811,7 @@
   } else {
     // 监听插件页面发来的消息
     chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-      alert(request.action);
       if (request.action === 'visual-compare-get-state') {
-          alert('~~~');
           sendResponse({
             state: 'undefined'
           });

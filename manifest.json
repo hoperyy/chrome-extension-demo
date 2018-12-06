@@ -19,7 +19,7 @@
     "background": {
         "persistent": true,
         "scripts": [
-            "jquery-3.1.1.min.js"
+            "jquery.js"
         ]
     },
 
@@ -39,6 +39,7 @@
         "img/compare-32.png",
         "img/compare-48.png",
         "img/compare-128.png",
+        "jquery.js",
         "content-scripts/visual-compare/index.css"
     ],
 
@@ -50,7 +51,7 @@
                 "file://*/*"
             ],
             "js": [
-                "jquery-3.1.1.min.js",
+                "jquery.js",
                 "common/util.js",
                 "content-scripts/visual-compare/index.js"
             ],

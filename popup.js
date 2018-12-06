@@ -4,6 +4,9 @@
  */
 $(function () {
 
+    var STATE_ON_TEXT = 'on';
+    var STATE_OFF_TEXT = 'off';
+
     function Popup() {
         this.getDeveloper.init();
         this.visualCompare.init();
@@ -12,8 +15,6 @@ $(function () {
     $.extend(Popup.prototype, {
         visualCompare: {
             init: function () {
-                this.STATE_ON_TEXT = 'on';
-                this.STATE_OFF_TEXT = 'off';
                 this.STATE_UNDEFINED = 'localStorage unavailable';
 
                 this.addEvent();
@@ -35,11 +36,11 @@ $(function () {
                         var state = response.state;
 
                         if (!state || state == 'off') {
-                            $target.find('.J_State').text(_this.STATE_OFF_TEXT);
+                            $target.find('.J_State').text(STATE_OFF_TEXT);
                         }
 
                         if (state == 'on') {
-                            $target.find('.J_State').text(_this.STATE_ON_TEXT);
+                            $target.find('.J_State').text(STATE_ON_TEXT);
                         }
 
                         if (state == 'undefined') {
@@ -65,11 +66,11 @@ $(function () {
                     }
 
                     if (currentState == 'off') {
-                        $state.text(_this.STATE_ON_TEXT);
+                        $state.text(STATE_ON_TEXT);
                     }
 
                     if (currentState == 'on') {
-                        $state.text(_this.STATE_OFF_TEXT);
+                        $state.text(STATE_OFF_TEXT);
                     }
 
                     // 同步到 localstorage
@@ -97,14 +98,32 @@ $(function () {
 
                 // 菜单点击以后执行的动作
                 jQuery('.J_GetDeveloper').click(function (e) {
+                    var $target = $(this);
+                    var $state = $target.find('.J_State');
+                    var currentState = $state.text();
+
+                    if (currentState !== 'on' && currentState !== 'off') {
+                        return;
+                    }
+
+                    if (currentState == 'off') {
+                        $state.text(STATE_ON_TEXT);
+                    }
+
+                    if (currentState == 'on') {
+                        $state.text(STATE_OFF_TEXT);
+                    }
+
                     // 通知页面 js 获取开发者信息
                     chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
                         chrome.tabs.sendMessage(tabs[0].id, {
-                            action: 'get-developer-run'
+                            action: currentState === 'off' ? 'get-developer-run' : 'get-developer-destroy'
                         }, function (response) {
 
                         });
                     });
+
+                    
                 });
             },
         }
