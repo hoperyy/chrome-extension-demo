@@ -8,10 +8,10 @@
   var localStorangeConfigName = 'visualComparePanelConfig';
   var localStorageStateName = 'visualCompareState';
 
-  var $ = window.$;
-  var weidianPowerUtil = window.ChromeExtention_WeidianPowerUtil;
+  var $ = window.chromePluginJquery;
+  var ChromeExtentionUtil = window.ChromeExtentionUtil;
 
-  var IS_SUPPORT_LOCALSTORAGE = weidianPowerUtil.isSupportLocalStorage();
+  var IS_SUPPORT_LOCALSTORAGE = ChromeExtentionUtil.isSupportLocalStorage();
   var IMG_PLACEHOLDER = 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAABCAYAAAAIN1RAAAAADElEQVQIW2NkIAEAAABaAAL8VAbiAAAAAElFTkSuQmCC';
 
   function Drag() {}
@@ -746,7 +746,7 @@
   $.extend(VisualCompare.prototype, {
 
     init: function() {
-      weidianPowerUtil.addCss('content-scripts/visual-compare/index.css', 'visual-compare-css');
+      ChromeExtentionUtil.addCss('content-scripts/visual-compare/index.css', 'visual-compare-css');
 
       this.img = new Img(this.config);
       this.crossLine = new CrossLine(this.config);
@@ -766,7 +766,7 @@
 
       $('body').find('.J_VisualCompareWrapper').remove();
 
-      weidianPowerUtil.removeDomById('visual-compare-css');
+      ChromeExtentionUtil.removeDomById('visual-compare-css');
 
       window.localStorage.setItem(localStorageStateName, 'off');
     }

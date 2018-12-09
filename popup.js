@@ -1,8 +1,7 @@
 /**
- * FeHelper弹出（下拉）页面
  * @author liuyuanyang
  */
-$(function () {
+(function () {
 
     var STATE_ON_TEXT = 'on';
     var STATE_OFF_TEXT = 'off';
@@ -130,4 +129,4 @@ $(function () {
     });
 
     new Popup();
-});
+})();

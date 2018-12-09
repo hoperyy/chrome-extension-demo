@@ -3,7 +3,9 @@
  * @class 工具类
  */
 
-var ChromeExtention_WeidianPowerUtil = {
+var $ = window.chromePluginJquery;
+
+var ChromeExtentionUtil = {
     addCss: function(href, id) {
         $('<link href="' + chrome.extension.getURL(href) + '" id="' + id + '" rel="stylesheet" type="text/css" />').appendTo('head');
     },
