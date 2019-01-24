@@ -6,9 +6,6 @@
 
     var $ = window.chromePluginDemoJquery;
 
-    var insetedJsId = 'chrome-plugin-demo-inserted-js';
-    var insertedCssId = 'chrome-plugin-demo-inserted-css';
-
     var localStorageStateName = 'chrome-plugin-demo-local-storage';
 
     // 监听 popup 发来的信息
@@ -16,18 +13,19 @@
         if (!request) {
             return;
         }
-        
-        if (request.action === 'chrome-plugin-demo-add-inserted') {
-            if (!document.getElementById(insertedCssId)) {
-                util.addCss('content-scripts/demo/inserted.css', insertedCssId);
-            }
-            if (!document.getElementById(insetedJsId)) {
-                util.addJs('content-scripts/demo/inserted.js', insetedJsId);
-            }
-        } else if (request.action === 'chrome-plugin-demo-remove-inserted') {
-            util.removeDomById(insertedCssId);
-            util.removeDomById(insetedJsId);
-        }
+
+        // 储备方法
+        // var insetedJsId = 'chrome-plugin-demo-inserted-js';
+        // var insertedCssId = 'chrome-plugin-demo-inserted-css';
+        // if (!document.getElementById(insertedCssId)) {
+        //     util.addCss('content-scripts/demo/inserted.css', insertedCssId);
+        // }
+        // if (!document.getElementById(insetedJsId)) {
+        //     util.addJs('content-scripts/demo/inserted.js', insetedJsId);
+        // }
+
+        // util.removeDomById(insertedCssId);
+        // util.removeDomById(insetedJsId);
 
         if (request.action === 'chrome-plugin-demo-get-state') {
             sendResponse({
@@ -36,9 +34,7 @@
         } else if (request.action === 'chrome-plugin-demo-set-state') {
             // 同步到 localStorage
             window.localStorage.setItem(localStorageStateName, request.targetState);
-            sendResponse({
-                msg: 'success'
-            });
+            sendResponse({ msg: 'success' });
 
             if (request.targetState === 'on') {
 
