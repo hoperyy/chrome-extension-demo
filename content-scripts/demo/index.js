@@ -41,7 +41,7 @@
             }
 
             if (request.targetState === 'off') {
-                instance && (instance.destory());
+                
             }
         }
     });
