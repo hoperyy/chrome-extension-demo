@@ -24,10 +24,15 @@ window.chromePluginDemoJquery(function () {
 
         // 同步到 localstorage
         chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
+            
             var shouldOpen = currentState === 'off';
+
+
             chrome.tabs.sendMessage(tabs[0].id, { 
                 action: shouldOpen ? 'chrome-plugin-demo-add-inserted' : 'chrome-plugin-demo-remove-inserted' 
             }, function (response) { });
+
+
             chrome.tabs.sendMessage(tabs[0].id, { 
                 action: 'chrome-plugin-demo-set-state',
                 targetState: shouldOpen ? 'on' : 'off'
