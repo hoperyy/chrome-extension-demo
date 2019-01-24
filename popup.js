@@ -1,3 +1,5 @@
+
+// 每次打开插件均会执行
 window.chromePluginDemoJquery(function () {
     var STATE_ON_TEXT = 'on';
     var STATE_OFF_TEXT = 'off';
