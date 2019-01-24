@@ -9,11 +9,7 @@ body {
     overflow: hidden;
 }
 
-.hide {
-    display: none;
-}
-
-.function-title {
+.demo-title {
     width: 100%;
     padding: 5px;
     padding-left: 15px;
@@ -23,12 +19,12 @@ body {
     border-bottom: 1px dotted #aaa;
 }
 
-ul.function-list {
+ul.demo-list {
     padding: 0px;
     list-style: none;
 }
 
-ul.function-list li {
+ul.demo-list li {
     margin: 0 3px 0 10px;
     padding: 6px;
     cursor: pointer;
@@ -37,33 +33,37 @@ ul.function-list li {
     /* border-bottom: 1px solid #aaa; */
 }
 
-ul.function-list li:hover {
+ul.demo-list li:hover {
     color: #ff3C11;
     background: #f1f1f1;
 }
 
-ul.function-list li .label {
+ul.demo-list li .label {
     display: inline-block;
     width: 150px;
     text-align: right;
 }
 
-ul.function-list li .state {
-	padding-left: 20px;
+ul.demo-list li .state {
+    padding-left: 20px;
 }
 
-.feedback {
+ul.demo-list li .link {
+    text-decoration: none;
+}
+
+.weidian-power-feedback {
     font-size: 12px;
     border-top: 1px dotted #ddd;
     padding: 5px 15px 5px 5px;
     text-align: right;
 }
 
-.feedback a {
+.weidian-power-feedback a {
     text-decoration: none;
     color: #888;
 }
 
-.feedback a:hover {
+.weidian-power-feedback a:hover {
     color: #a00;
 }

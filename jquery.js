@@ -10334,18 +10334,18 @@ jQuery.isNumeric = function( obj ) {
 // var
 
 // 	// Map over jQuery in case of overwrite
-//     _jQuery = window.chromePluginJquery,
+//     _jQuery = window.chromePluginDemoJquery,
 
 // 	// Map over the $ in case of overwrite
-//     _$ = window.chromePluginJquery;
+//     _$ = window.chromePluginDemoJquery;
 
 // jQuery.noConflict = function( deep ) {
-//     if (window.chromePluginJquery === jQuery ) {
-//         window.chromePluginJquery = _$;
+//     if (window.chromePluginDemoJquery === jQuery ) {
+//         window.chromePluginDemoJquery = _$;
 // 	}
 
 // 	if ( deep && window.jQuery === jQuery ) {
-//         window.chromePluginJquery = _jQuery;
+//         window.chromePluginDemoJquery = _jQuery;
 // 	}
 
 // 	return jQuery;
@@ -10355,7 +10355,7 @@ jQuery.isNumeric = function( obj ) {
 // (#7102#comment:10, https://github.com/jquery/jquery/pull/557)
 // and CommonJS for browser emulators (#13566)
 if ( !noGlobal ) {
-	window.chromePluginJquery = jQuery;
+	window.chromePluginDemoJquery = jQuery;
 }
 
 
