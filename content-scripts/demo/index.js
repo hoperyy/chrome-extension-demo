@@ -1,10 +1,12 @@
 
 
 // content script 无法获取页面的 window 等对象，但可以共享 DOM
-(function() {
+(function () {
     var util = window.ChromePluginDemoUtil;
 
-    var $ = window.chromePluginDemoJquery;
+    var $ = window.chromePluginDemoBlockJquery;
+    var LS_STATE_ON = 'on';
+    var LS_STATE_OFF = 'off';
 
     var localStorageStateName = 'chrome-plugin-demo-local-storage';
 
@@ -28,20 +30,18 @@
         // util.removeDomById(insetedJsId);
 
         if (request.action === 'chrome-plugin-demo-get-state') {
-            sendResponse({
-                state: window.localStorage.getItem(localStorageStateName)
-            });
+            sendResponse({ state: window.localStorage.getItem(localStorageStateName) });
         } else if (request.action === 'chrome-plugin-demo-set-state') {
             // 同步到 localStorage
             window.localStorage.setItem(localStorageStateName, request.targetState);
             sendResponse({ msg: 'success' });
 
-            if (request.targetState === 'on') {
+            if (request.targetState === LS_STATE_ON) {
 
             }
 
-            if (request.targetState === 'off') {
-                
+            if (request.targetState === LS_STATE_OFF) {
+
             }
         }
     });
