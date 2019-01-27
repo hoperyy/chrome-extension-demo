@@ -1,8 +1,8 @@
 {
-    "name": "chrome-plugin-demo",
+    "name": "baidublock",
     "version": "1.0.1",
     "manifest_version": 2,
-    "description": "chrome-plugin-demo",
+    "description": "baidublock",
     "icons": {
         "16": "img/weidian-power-16.png",
         "32": "img/weidian-power-32.png",
@@ -12,7 +12,7 @@
 
     "browser_action": {
         "default_icon": "img/weidian-power-128.png",
-        "default_title": "weidian power",
+        "default_title": "baidublock",
         "default_popup": "popup.html"
     },
 
@@ -33,9 +33,8 @@
         "img/weidian-power-48.png",
         "img/weidian-power-128.png",
         "img/weidian-power-128.png",
-        "jquery.js",
-        "content-scripts/demo/inserted.js",
-        "content-scripts/demo/inserted.css"
+        "dist/static/inserted/index.js",
+        "dist/static/inserted/index.css"
     ],
 
     "content_scripts": [
@@ -46,10 +45,9 @@
                 "file://*/*"
             ],
             "js": [
-                "jquery.js",
-                "common/util.js",
-                "common/append-common-source-to-dom.js",
-                "content-scripts/demo/index.js"
+                "dist/static/common.js",
+                "dist/static/pre-action/index.js",
+                "dist/static/index/index.js"
             ],
             "run_at": "document_end",
             "all_frames": false

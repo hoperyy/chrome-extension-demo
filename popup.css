@@ -56,9 +56,9 @@ li .link {
     background-color: #fafbfa;
     padding: 9px;
     border-radius: 50px;
-    display: inline-block;
+    display: block;
     position: relative;
-    /* margin: 0 auto; */
+    margin: 0 auto;
     -webkit-transition: all 0.1s ease-in;
     transition: all 0.1s ease-in;
     width: 40px;
