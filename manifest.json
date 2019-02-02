@@ -1,18 +1,18 @@
 {
-    "name": "baidublock",
+    "name": "demo",
     "version": "1.0.1",
     "manifest_version": 2,
-    "description": "baidublock",
+    "description": "demo",
     "icons": {
-        "16": "img/weidian-power-16.png",
-        "32": "img/weidian-power-32.png",
-        "48": "img/weidian-power-48.png",
-        "128": "img/weidian-power-128.png"
+        "16": "img/16.png",
+        "32": "img/32.png",
+        "48": "img/48.png",
+        "128": "img/128.png"
     },
 
     "browser_action": {
-        "default_icon": "img/weidian-power-128.png",
-        "default_title": "baidublock",
+        "default_icon": "img/128.png",
+        "default_title": "demo",
         "default_popup": "popup.html"
     },
 
@@ -28,11 +28,12 @@
     ],
 
     "web_accessible_resources": [
-        "img/weidian-power-16.png",
-        "img/weidian-power-32.png",
-        "img/weidian-power-48.png",
-        "img/weidian-power-128.png",
-        "img/weidian-power-128.png",
+        "img/16.png",
+        "img/32.png",
+        "img/48.png",
+        "img/128.png",
+        "img/128.png",
+        "jquery.js",
         "dist/static/inserted/index.js",
         "dist/static/inserted/index.css"
     ],
