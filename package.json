@@ -7,7 +7,7 @@
   },
   "author": "",
   "license": "ISC",
-  "qute-scaffold": "qute-scaffold-vue",
+  "qute-scaffold": "qute-scaffold",
   "dependencies": {
     "jquery": "^3.3.1"
   }

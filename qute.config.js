@@ -19,6 +19,8 @@ module.exports = ({ userDir, srcDir, distDir, taskName, webpack, webpackDevServe
             },
         },
 
+        commonJs: false,
+
         // webpack config to be merged; webpack config style required
         webpackConfig: {
             
