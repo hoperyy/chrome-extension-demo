@@ -52,9 +52,10 @@ if (currentState == 'on') {
     const $input = $('#kw');
 
     if ($input.length) {
+        // 创建一个浮层
         $button.on('click', function () {
             const val = $input.val();
-            if (val.indexOf(' -baijiahao') === -1) {
+            if (val && val.indexOf(' -baijiahao') === -1) {
                 $input.val(val + ' -baijiahao');
             }
         });

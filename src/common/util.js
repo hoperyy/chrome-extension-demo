@@ -2,7 +2,7 @@
  * @author 刘远洋
  * @class 工具类
  */
-import $ from '../jquery';
+import $ from 'jquery';
 
 export default {
   addCss: function (href, id) {
