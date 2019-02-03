@@ -5,16 +5,16 @@
 import $ from 'jquery';
 
 export default {
-  addCss: function (href, id) {
-    $('<link href="' + chrome.extension.getURL(href) + '" id="' + id + '" rel="stylesheet" type="text/css" />').appendTo('head');
+  addCss(href, id) {
+    $(`<link href="${chrome.extension.getURL(href)}" ${id ? 'id="' + id + '"' : ''} rel="stylesheet" type="text/css" />`).appendTo('head');
   },
-  addJs: function (src, id) {
-    $('<script src="' + chrome.extension.getURL(src) + '" id="' + id + '"></script>').appendTo('body');
+  addJs(src, id) {
+    $(`<script src="${chrome.extension.getURL(src)}" ${id ? 'id="' + id + '"' : ''}></script>`).appendTo('body');
   },
-  removeDomById: function (id) {
-    $(document).find('#' + id).remove();
+  removeDomById(id) {
+    $(document).find(`#${id}`).remove();
   },
-  isSupportLocalStorage: function () {
+  isSupportLocalStorage() {
     try {
       window.localStorage.setItem('ChromePluginDemo_testLs', '1');
       window.localStorage.getItem('ChromePluginDemo_testLs');

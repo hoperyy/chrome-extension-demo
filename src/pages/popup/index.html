@@ -4,19 +4,11 @@
         <title>demo</title>
         <meta charset="utf-8">
 		<link rel="stylesheet" href="../static/popup/index.css" />
-		<script type="text/javascript" src="../static/popup/index.js"></script>
     </head>
     <body>
-        <div>
-            <div class="demo-title">demo</div>
-            <ul class="demo-list">
-                <li class="J_Demo">
-                    <span class="state J_State"></span>
-                </li>
-            </ul>
-            <div class="feedback">
-                <a href="https://github.com/hoperyy" target="_blank">contact mantainer</a>
-            </div>
+        <div id="app">
+            <router-view></router-view>
         </div>
+        <script type="text/javascript" src="../static/popup/index.js"></script>
     </body>
 </html>

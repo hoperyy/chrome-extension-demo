@@ -2,24 +2,9 @@
 
 // content script 无法获取页面的 window 等对象，但可以共享 DOM
 import $ from 'jquery';
+import config from '../../common/config';
 
-const LS_STATE_ON = 'on';
-const LS_STATE_OFF = 'off';
-
-const localStorageStateName = 'chrome-plugin-local-storage';
-
-// 储备方法
-// var insetedJsId = 'chrome-plugin-demo-inserted-js';
-// var insertedCssId = 'chrome-plugin-demo-inserted-css';
-// if (!document.getElementById(insertedCssId)) {
-//     util.addCss('content-scripts/demo/inserted.css', insertedCssId);
-// }
-// if (!document.getElementById(insetedJsId)) {
-//     util.addJs('content-scripts/demo/inserted.js', insetedJsId);
-// }
-
-// util.removeDomById(insertedCssId);
-// util.removeDomById(insetedJsId);
+const localStorageStateName = `${config.pluginName}-local-storage`;
 
 // 监听 popup 发来的信息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -27,20 +12,14 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         return;
     }
 
-    if (request.action === 'chrome-plugin-get-state') {
+    if (request.action === `${config.pluginName}-get-state`) {
         sendResponse({ state: window.localStorage.getItem(localStorageStateName) });
-    } else if (request.action === 'chrome-plugin-set-state') {
+    }
+    
+    if (request.action === `${config.pluginName}-set-state`) {
         // 同步到 localStorage
         window.localStorage.setItem(localStorageStateName, request.targetState);
         sendResponse({ msg: 'success' });
-
-        if (request.targetState === LS_STATE_ON) {
-
-        }
-
-        if (request.targetState === LS_STATE_OFF) {
-            
-        }
     }
 });
 
@@ -53,7 +32,7 @@ if (currentState == 'on') {
 
     if ($input.length) {
         // 创建一个浮层
-        $button.on('click', function () {
+        $button.on('click', () => {
             const val = $input.val();
             if (val && val.indexOf(' -baijiahao') === -1) {
                 $input.val(val + ' -baijiahao');
