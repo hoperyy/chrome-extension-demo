@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "3ec11c227673c8e2a2d3"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db5ba4486749e8fb874b"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -20338,11 +20338,37 @@ if (currentState == 'on') {
 
     if ($input.length) {
         // 创建一个浮层
+        // const $inputLayer = $(`<input id="lyy" />`);
+        // const css = {
+        //     position: 'fixed',
+        //     left: $input.offset().left,
+        //     top: $input.offset().top,
+        //     height: $input.height(),
+        //     width: $input.width(),
+        //     background: '#fff',
+        //     border: '0',
+        //     'z-index': 10000
+        // };
+        // $inputLayer.css(css);
+        // $inputLayer.appendTo('body');
+
+        // // 初始化浮层的值
+        // $inputLayer.val($input.val());
+
+        // $inputLayer.on('change', () => {
+        //     let val = $inputLayer.val();
+        //     if (val && val.indexOf(' -baijiahao') === -1) {
+        //         val += ' -baijiahao';
+        //     }
+        //     $input.val(val);
+        // });
+
         $button.on('click', function () {
             var val = $input.val();
             if (val && val.indexOf(' -baijiahao') === -1) {
-                $input.val(val + ' -baijiahao');
+                val += ' -baijiahao';
             }
+            $input.val(val);
         });
     }
 }

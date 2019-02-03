@@ -1,10 +1,23 @@
+webpackHotUpdate(2,{
 
+/***/ 97:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _jquery = __webpack_require__(88);
+
+var _jquery2 = _interopRequireDefault(_jquery);
+
+var _config = __webpack_require__(110);
+
+var _config2 = _interopRequireDefault(_config);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // content script 无法获取页面的 window 等对象，但可以共享 DOM
-import $ from 'jquery';
-import config from '../../common/config';
-
-const localStorageStateName = `${config.pluginName}-local-storage`;
+var localStorageStateName = _config2.default.pluginName + '-local-storage';
 
 // 监听 popup 发来的信息
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
@@ -12,23 +25,23 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         return;
     }
 
-    if (request.action === `${config.pluginName}-get-state`) {
+    if (request.action === _config2.default.pluginName + '-get-state') {
         sendResponse({ state: window.localStorage.getItem(localStorageStateName) });
     }
-    
-    if (request.action === `${config.pluginName}-set-state`) {
+
+    if (request.action === _config2.default.pluginName + '-set-state') {
         // 同步到 localStorage
         window.localStorage.setItem(localStorageStateName, request.targetState);
         sendResponse({ msg: 'success' });
     }
 });
 
-const currentState = window.localStorage.getItem(localStorageStateName);
+var currentState = window.localStorage.getItem(localStorageStateName);
 
 if (currentState == 'on') {
     // $('body').css('background', 'green');
-    const $button = $('#su');
-    const $input = $('#kw');
+    var $button = (0, _jquery2.default)('#su');
+    var $input = (0, _jquery2.default)('#kw');
 
     if ($input.length) {
         // 创建一个浮层
@@ -57,8 +70,8 @@ if (currentState == 'on') {
         //     $input.val(val);
         // });
 
-        $button.on('click', () => {
-            let val = $input.val();
+        $button.on('click', function () {
+            var val = $input.val();
             if (val && val.indexOf(' -baijiahao') === -1) {
                 val += ' -baijiahao';
             }
@@ -66,3 +79,7 @@ if (currentState == 'on') {
         });
     }
 }
+
+/***/ })
+
+})
